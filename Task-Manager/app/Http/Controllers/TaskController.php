@@ -20,16 +20,16 @@ class TaskController extends Controller
         $request->validate([
             'task_name' => 'required',
             'description' => 'nullable',
-            'status' => 'required',
             'due_date' => 'nullable|date',
         ]);
 
         Task::create($request->only([
             'task_name',
             'description',
-            'status',
             'due_date',
-        ]));
+        ]) + [
+            'status' => 'Pending',
+        ]);
 
         return new RedirectResponse('/', 303);
     }
