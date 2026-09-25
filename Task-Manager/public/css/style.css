@@ -1,0 +1,507 @@
+/* =========================================
+   GENERAL
+========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #e7f4ff, #eefaf5, #f0e9ff);
+    min-height: 100vh;
+    padding: 20px;
+    color: #23415f;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+
+/* =========================================
+   ADD TASK
+========================================= */
+
+.add-task-box {
+    background: rgba(255, 255, 255, 0.72);
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 15px rgba(80, 130, 170, 0.08);
+}
+
+.add-task-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.add-icon {
+    width: 30px;
+    height: 30px;
+    background: #45ad78;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.add-task-title h1 {
+    font-size: 20px;
+    color: #294965;
+}
+
+.add-task-title p {
+    font-size: 9px;
+    color: #7890a5;
+    margin-top: 3px;
+}
+
+
+/* =========================================
+   INPUTS
+========================================= */
+
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.input-row input,
+.date-row input {
+    width: 100%;
+    height: 38px;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 7px;
+    padding: 0 13px;
+    color: #45627b;
+    font-size: 11px;
+    outline: none;
+}
+
+.input-row input:focus,
+.date-row input:focus {
+    box-shadow: 0 0 0 2px rgba(69, 173, 120, 0.18);
+}
+
+
+/* =========================================
+   DATE + BUTTON
+========================================= */
+
+.date-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.date-row input {
+    width: 225px;
+}
+
+.add-task-button {
+    margin-left: auto;
+    display: block;
+    border: none;
+    background: #45ad78;
+    color: white;
+    border-radius: 7px;
+    padding: 10px 20px;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.add-task-button:hover {
+    background: #399b6b;
+}
+
+
+/* =========================================
+   TASKS
+========================================= */
+
+.tasks-container {
+    background: rgba(255, 255, 255, 0.72);
+    border-radius: 14px;
+    padding: 12px;
+    box-shadow: 0 4px 15px rgba(80, 130, 170, 0.08);
+}
+
+.tasks-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 2px 12px 2px;
+}
+
+.tasks-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tasks-icon {
+    width: 30px;
+    height: 30px;
+    background: #d9efff;
+    color: #55a9dc;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+}
+
+.tasks-title h2 {
+    font-size: 14px;
+    color: #294965;
+}
+
+.task-filter {
+    background: #d9efff;
+    color: #438cc0;
+    border: none;
+    border-radius: 15px;
+    padding: 7px 13px;
+    font-size: 10px;
+}
+
+
+/* =========================================
+   TASK ITEM
+========================================= */
+
+.task {
+    min-height: 57px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid #e6edf4;
+    border-left: 4px solid #9edcc0;
+    border-radius: 8px;
+    margin-bottom: 7px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.task:nth-child(3n + 1) {
+    border-left-color: #9edcc0;
+}
+
+.task:nth-child(3n + 2) {
+    border-left-color: #8ed2f2;
+}
+
+.task:nth-child(3n + 3) {
+    border-left-color: #c7a5f5;
+}
+
+
+/* =========================================
+   CHECK BOX
+========================================= */
+
+.check-box {
+    width: 13px;
+    height: 13px;
+    border: 1.5px solid #80a8c7;
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+
+
+/* =========================================
+   TASK INFORMATION
+========================================= */
+
+.task-information {
+    flex: 1;
+    min-width: 0;
+}
+
+.task-information h3 {
+    font-size: 10px;
+    color: #31516d;
+    margin-bottom: 4px;
+}
+
+.task-description {
+    font-size: 8px;
+    color: #8aa1b5;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================
+   DUE DATE
+========================================= */
+
+.due-date {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 105px;
+    font-size: 8px;
+    color: #6687a3;
+}
+
+.calendar-icon {
+    font-size: 11px;
+}
+
+
+/* =========================================
+   ACTION BUTTONS
+========================================= */
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.edit-button,
+.delete-button {
+    background: none;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 2px;
+}
+
+.edit-button {
+    color: #527fa7;
+}
+
+.delete-button {
+    color: #ff6670;
+}
+
+.edit-button:hover {
+    color: #32668f;
+}
+
+.delete-button:hover {
+    color: #e9434e;
+}
+
+
+/* =========================================
+   NO TASKS
+========================================= */
+
+.no-tasks {
+    text-align: center;
+    padding: 40px 20px;
+    color: #7890a5;
+}
+
+.no-tasks-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.no-tasks h3 {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.no-tasks p {
+    font-size: 10px;
+}
+
+
+/* =========================================
+   EDIT PAGE
+========================================= */
+
+.edit-page {
+    font-family: Arial, sans-serif;
+}
+
+.edit-container {
+    max-width: 650px;
+    margin: 45px auto;
+}
+
+.edit-header {
+    background: rgba(255, 255, 255, 0.72);
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 15px rgba(80, 130, 170, 0.08);
+}
+
+.edit-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #d9efff;
+    color: #528fb9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.edit-header h1 {
+    font-size: 19px;
+    color: #294965;
+}
+
+.edit-header p {
+    font-size: 9px;
+    color: #7890a5;
+    margin-top: 4px;
+}
+
+.edit-card {
+    background: rgba(255, 255, 255, 0.72);
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(80, 130, 170, 0.08);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 10px;
+    color: #54728b;
+    margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #e2eaf1;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 7px;
+    padding: 0 12px;
+    color: #45627b;
+    font-size: 11px;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #8dcbaa;
+    box-shadow: 0 0 0 2px rgba(69, 173, 120, 0.12);
+}
+
+
+/* =========================================
+   EDIT BUTTONS
+========================================= */
+
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.back-button,
+.update-button {
+    text-decoration: none;
+    border: none;
+    border-radius: 7px;
+    padding: 11px 18px;
+    font-size: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.back-button {
+    background: #e7f0f7;
+    color: #58758e;
+}
+
+.update-button {
+    background: #45ad78;
+    color: white;
+}
+
+.back-button:hover {
+    background: #dce8f0;
+}
+
+.update-button:hover {
+    background: #399b6b;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .input-row {
+        grid-template-columns: 1fr;
+    }
+
+    .date-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .date-row input {
+        width: 100%;
+    }
+
+    .add-task-button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .task {
+        gap: 8px;
+    }
+
+    .due-date {
+        display: none;
+    }
+
+    .actions {
+        gap: 7px;
+    }
+
+    .edit-container {
+        margin: 20px auto;
+    }
+
+    .button-row {
+        flex-direction: column;
+    }
+
+    .back-button,
+    .update-button {
+        width: 100%;
+    }
+
+}
